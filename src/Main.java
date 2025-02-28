@@ -53,6 +53,7 @@ public class Main {
             } else if (ronda == 3) {
 
                 System.out.println("PERDISTE TODO");
+                dinero=0;
 
                 break;
 
@@ -66,7 +67,9 @@ public class Main {
             juega=teclado.nextInt();
 
 
+
         }while(juega==1);
+        System.out.println("QUEDASTE CON: " + dinero);
         System.out.println("  ");
         System.out.println("FIN DEL JUEGO");
 
