@@ -1,51 +1,61 @@
 import java.util.Random;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Random ale= new Random();
-        int max=10;
+        int max=50;
         int min=1;
-        int rondas, d1, d2;
-        int contd1=0, contd2=0;
-
+        int numero;
+        int contd1=0;
+        Scanner teclado = new Scanner(System.in);
 
 
         Random ale1= new Random();
-        rondas= ale1.nextInt(max- min + 1) +min;
-        System.out.println("TENDRA " + rondas + " RONDAS");
-        System.out.println(" ");
-
-        for (int i= 1; i <= rondas; i++ ){
-            d1= ale.nextInt((6 - 1 + 1)) + 1;
-            contd1 += d1;
-
-            d2= ale.nextInt((6 - 1 + 1)) + 1;
-            contd2 += d2;
-
-
-            System.out.println(" ");
-
-            System.out.println("D1: " + d1 + " " + "D2: " +d2);
-
-
-        }
-
-        System.out.println(" ");
-        System.out.println("SUMA DE LOS DADOS");
-        System.out.println("D1: " + contd1);
-        System.out.println("D2: " + contd2);
+        numero= ale1.nextInt(max- min + 1) +min;
+        System.out.println("---ADIVINA EL NUMERO----");
+        System.out.println("  ");
+        System.out.println("SOLO TIENES TRES INTENTOS");
         System.out.println("  ");
 
-        if (contd1 <= contd2) {
-            System.out.println("EL GANADOR ES EL DADO 2");
+        do{
+            for (int n= 1; n <=3; n++ ){
+                System.out.println("INGRESA UN NUMERO");
+                n= teclado.nextInt();
+                if (n<numero){
+                    System.out.println("El numero es mayor");
 
-        }else if(contd1 >= contd2){
-            System.out.println("EL GANADOR ES EL DADO 1");
+                } else if (n>numero) {
+                    System.out.println("El numero es menor");
 
-        }else{
-            System.out.println("EMPATE");
+                }else{
+                    System.out.println("Ese era el numero");
+                    System.out.println(" ");
+                    System.out.println("¡GANASTE!");
+                    break;
+                }
+                contd1++;
+
+
+
+            }
+        }while (contd1<3);
+
+        if(contd1==3){
+            System.out.println("PERDISTE");
+
+            System.out.println("Se te acabaron tus tres intentos");
+
         }
-    }
+        System.out.println(" ");
+        System.out.println("EL NUMERO ERA: " + numero);
+
+
+        }
+
+
+
+
 }
