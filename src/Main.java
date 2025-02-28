@@ -1,55 +1,74 @@
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        double peso;
-        double estatura;
-        double IMC;
+        int juega=0;
+        int max = 3;
+        int min = 1;
+        int ronda;
+        int dinero;
+        int gano, divide, perdio;
 
         Scanner teclado = new Scanner(System.in);
 
-        System.out.println("---INDICE DE GRASA CORPORAL---");
+
+
+        System.out.println("----CASINO-----");
+        System.out.println(" ");
+        System.out.println("NORMAS");
+        System.out.println("Caera aleatoraimente 3 opciones al ingresar el dinero");
         System.out.println("  ");
-        System.out.println("Digita tu peso en kg: ");
-        peso= teclado.nextDouble();
+        System.out.println("1= SE DUBPLICARA EL DINERO");
+        System.out.println("2= SE TE QUITA LA MITAD DEL DINERO");
+        System.out.println("3= PIRDES TODO");
 
-        System.out.println("   ");
-        System.out.println("Digita tu altura en metros: ");
-        estatura= teclado.nextDouble();
-        IMC= peso/(estatura*estatura);
+        System.out.println("¿CUANTO DINERO VAS HA INGRESAR?");
         System.out.println("  ");
 
-        System.out.println("TU INDICE DE GRASA CORPORAL ES:");
+        dinero = teclado.nextInt();
+        System.out.println("  ");
 
-        if(IMC<=18.5){
-            System.out.println("BAJO PESO");
-        } else if (IMC>18.5 && IMC<=24.9) {
-            System.out.println("PESO NORMAL");
+        do {
 
-        }else if (IMC>=25 && IMC<=26.9) {
-            System.out.println("SOBREPESO GRADO I");
-
-        }else if (IMC>=27 && IMC<=29.9) {
-            System.out.println("SOBREPESO GRADO II");
-
-        }else if (IMC>=30 && IMC<=34.9) {
-            System.out.println("OBESISDAD TIPO I");
-
-        }else if (IMC>=35 && IMC<=39.9) {
-            System.out.println("OBESISDAD TIPO II");
-
-        }else if (IMC>=40 && IMC<=49.9) {
-            System.out.println("OBESISDAD TIPO III (MORBIDA)");
-
-        }else if (IMC>=50) {
-            System.out.println("OBESISDAD TIPO IV (EXTREMA");
-
-        }
-        System.out.println(IMC);
+            Random ale1 = new Random();
+            ronda = ale1.nextInt(max - min + 1) + min;
 
 
+            if (ronda == 1) {
+                gano = dinero * 2;
+                dinero=gano;
+                System.out.println("SE DUPLICO TU DINERO");
+                System.out.println(gano);
+
+
+            } else if (ronda == 2) {
+                divide = dinero / 2;
+                dinero=divide;
+                System.out.println("PERDISTE LA MITAD");
+                System.out.println(divide);
+
+
+            } else if (ronda == 3) {
+
+                System.out.println("PERDISTE TODO");
+
+                break;
+
+            }
+            System.out.println("  ");
+
+            System.out.println("¿QUIERES SEGUIR JUGANDO?");
+            System.out.println("   ");
+            System.out.println("1: SI");
+            System.out.println("2: NO");
+            juega=teclado.nextInt();
+
+
+        }while(juega==1);
+        System.out.println("  ");
+        System.out.println("FIN DEL JUEGO");
 
     }
-
 }
